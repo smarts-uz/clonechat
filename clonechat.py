@@ -271,10 +271,11 @@ def get_sender(message):
         return foward_video_note
     if message.poll:
         return foward_poll
-
+    else:
+        print('nothing')
     print("\nNot recognized message type:\n")
     print(message)
-    raise Exception
+    # raise Exception
 
 
 def get_input_type_to_copy():
@@ -563,8 +564,9 @@ def main():
             list_posted += [message.id]
             update_cache(CACHE_FILE, list_posted)
             continue
+        # print(message,destination_chat)
 
-        func_sender(message, destination_chat)
+        # func_sender(message, destination_chat)
         print(f"{message_id}/{last_message_id}")
 
         list_posted += [message.id]
